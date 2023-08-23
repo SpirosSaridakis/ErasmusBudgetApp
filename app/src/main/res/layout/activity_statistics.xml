@@ -6,13 +6,115 @@
     android:layout_height="match_parent"
     tools:context=".Statistics">
 
-    <TextView
-        android:id="@+id/tvStatsTest"
+    <ImageView
+        android:id="@+id/ivFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome To Statistics"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatsWindow"
+        app:srcCompat="@drawable/fast_food" />
+
+    <TextView
+        android:id="@+id/tvStatsWindow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Statistics"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivEntertainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFood"
+        app:srcCompat="@drawable/disco_ball" />
+
+    <ImageView
+        android:id="@+id/ivMisc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivEntertainment"
+        app:srcCompat="@drawable/box" />
+
+    <TextView
+        android:id="@+id/tvFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivFood"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivFood"
+        tools:text="Amount" />
+
+    <TextView
+        android:id="@+id/tvEntertainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivEntertainment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivEntertainment"
+        tools:text="Amount" />
+
+    <TextView
+        android:id="@+id/tvMisc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMisc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivMisc"
+        tools:text="Amount" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFoodDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Food"
+        app:layout_constraintBottom_toTopOf="@+id/ivFood"
+        app:layout_constraintEnd_toEndOf="@+id/ivFood"
+        app:layout_constraintStart_toStartOf="@+id/ivFood" />
+
+    <TextView
+        android:id="@+id/tvEntertainmentDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Entertainment"
+        app:layout_constraintBottom_toTopOf="@+id/ivEntertainment"
+        app:layout_constraintEnd_toEndOf="@+id/ivEntertainment"
+        app:layout_constraintStart_toStartOf="@+id/ivEntertainment" />
+
+    <TextView
+        android:id="@+id/tvMiscDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Other"
+        app:layout_constraintBottom_toTopOf="@+id/ivMisc"
+        app:layout_constraintEnd_toEndOf="@+id/ivMisc"
+        app:layout_constraintStart_toStartOf="@+id/ivMisc" />
 </androidx.constraintlayout.widget.ConstraintLayout>
