@@ -7,12 +7,122 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvMonthlyBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp"
+        android:text="Monthly Budget: 750€"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvSpent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Spent:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvMonthlyBudget"
+        app:layout_constraintTop_toBottomOf="@+id/tvMonthlyBudget" />
+
+    <TextView
+        android:id="@+id/tvAmountSpent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvMonthlyBudget"
+        app:layout_constraintTop_toBottomOf="@+id/tvMonthlyBudget" />
+
+    <TextView
+        android:id="@+id/tvLeftBudgetText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="You are"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="@+id/tvSpent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSpent" />
+
+    <TextView
+        android:id="@+id/tvBudgetResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="94dp"
+        android:text="Under"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvMonthlyBudget"
+        app:layout_constraintStart_toStartOf="@+id/tvMonthlyBudget"
+        app:layout_constraintTop_toBottomOf="@+id/tvMonthlyBudget" />
+
+    <TextView
+        android:id="@+id/tvBudgetText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Budget"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/tvAmountSpent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmountSpent" />
+
+    <TextView
+        android:id="@+id/tvFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="💰Erasmus Budget App 💰"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnStats"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvStats"
+        app:layout_constraintStart_toStartOf="@+id/tvStats"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58"
+        app:srcCompat="@drawable/graph" />
+
+    <TextView
+        android:id="@+id/tvStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="10dp"
+        android:text="Statistics"
+        app:layout_constraintBottom_toTopOf="@+id/btnStats"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnExpenseDiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnStats"
+        app:srcCompat="@drawable/notebook" />
+
+    <TextView
+        android:id="@+id/tvExpenseDiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expense Diary"
+        app:layout_constraintBottom_toBottomOf="@+id/tvStats"
+        app:layout_constraintEnd_toEndOf="@+id/btnExpenseDiary"
+        app:layout_constraintStart_toStartOf="@+id/btnExpenseDiary"
+        app:layout_constraintTop_toTopOf="@+id/tvStats" />
 </androidx.constraintlayout.widget.ConstraintLayout>
