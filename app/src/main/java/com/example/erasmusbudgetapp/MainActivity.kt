@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        populateFields()
     }
 
     @SuppressLint("ResourceAsColor")
