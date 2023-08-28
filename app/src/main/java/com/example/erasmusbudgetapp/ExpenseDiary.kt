@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
@@ -21,13 +22,20 @@ class ExpenseDiary : AppCompatActivity() {
     private lateinit var spExpenseType : Spinner
     private lateinit var etExpenseAmount : EditText
     private lateinit var etDescription : EditText
+    private lateinit var btnBackED : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_expense_diary);
         spExpenseType = findViewById(R.id.spExpenseType);
         val items = listOf("Food","Entertainment","Other");
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        btnBackED = findViewById(R.id.btnBackED);
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        btnBackED.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                onBackPressed()
+            }
+        })
         spExpenseType.adapter = adapter;
         etExpenseAmount = findViewById(R.id.etExpenseAmount);
         etDescription = findViewById(R.id.etDescription);
@@ -60,6 +68,9 @@ class ExpenseDiary : AppCompatActivity() {
                         osw.close()
                         fos.close()
                         Toast.makeText(context, "Wrote to file", Toast.LENGTH_SHORT).show()
+                        etExpenseAmount.text.clear();
+                        etDescription.text.clear();
+
                     }catch (e: IOException) {
                         Toast.makeText(context, "Error writing to file", Toast.LENGTH_SHORT).show()
                     }

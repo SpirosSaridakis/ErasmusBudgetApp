@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btnExpenseDiary: ImageButton
@@ -28,8 +30,26 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent);
             }
         })
+    }
 
+    override fun onRestart() {
+        super.onRestart()
+    }
 
+    fun populateFields(){
+        val fis = openFileInput("data.txt")
+        val isr = InputStreamReader(fis)
+        val br = BufferedReader(isr)
 
+        val text = StringBuilder()
+        var line: String?
+
+        while (br.readLine().also { line = it } != null) {
+            text.append(line)
+        }
+
+        br.close()
+        isr.close()
+        fis.close()
     }
 }
