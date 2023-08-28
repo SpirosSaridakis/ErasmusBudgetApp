@@ -1,20 +1,35 @@
 package com.example.erasmusbudgetapp
 
+import android.animation.ArgbEvaluator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import org.w3c.dom.Text
 import java.io.BufferedReader
+import java.io.IOException
 import java.io.InputStreamReader
 
+const val BUDGET=750
 class MainActivity : AppCompatActivity() {
     private lateinit var btnExpenseDiary: ImageButton
     private lateinit var btnStats: ImageButton
+    private lateinit var tvAmountSpent : TextView
+    private lateinit var tvAvailableAmount: TextView
+    private lateinit var tvBudgetResult: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        tvAmountSpent = findViewById(R.id.tvAmountSpent)
+        tvAvailableAmount = findViewById(R.id.tvAvailableAmount)
         btnExpenseDiary = findViewById(R.id.btnExpenseDiary)
+        tvBudgetResult = findViewById(R.id.tvBudgetResult)
         btnStats = findViewById(R.id.btnStats)
         btnExpenseDiary.setOnClickListener(object :View.OnClickListener{
             override fun onClick(p0: View?) {
@@ -30,26 +45,43 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent);
             }
         })
+        populateFields()
     }
 
     override fun onRestart() {
         super.onRestart()
     }
 
+    @SuppressLint("ResourceAsColor")
     fun populateFields(){
-        val fis = openFileInput("data.txt")
-        val isr = InputStreamReader(fis)
-        val br = BufferedReader(isr)
+        val context = this;
+        try {
+            var total: Double = 0.0
+            val fis = openFileInput("data.txt")
+            val isr = InputStreamReader(fis)
+            val br = BufferedReader(isr)
 
-        val text = StringBuilder()
-        var line: String?
-
-        while (br.readLine().also { line = it } != null) {
-            text.append(line)
+            var line: String? = br.readLine()
+            while (line != null) {
+                var values: List<String> = line.split(";");
+                total += values[1].toDouble();
+                line=br.readLine();
+            }
+            tvAmountSpent.text = total.toString();
+            if(total < BUDGET){
+                tvAvailableAmount.text = (BUDGET-total).toString();
+                tvBudgetResult.text = "Under"
+                tvBudgetResult.setTextColor(R.color.best_tip);
+                tvAmountSpent.setTextColor(R.color.best_tip);
+            }else{
+                tvBudgetResult.text="Over"
+                tvBudgetResult.setTextColor(R.color.worst_tip);
+            }
+            br.close()
+            isr.close()
+            fis.close()
+        }catch (e: IOException) {
+            Toast.makeText(context, "File does not exist", Toast.LENGTH_SHORT).show()
         }
-
-        br.close()
-        isr.close()
-        fis.close()
     }
 }
