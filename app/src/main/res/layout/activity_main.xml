@@ -125,4 +125,24 @@
         app:layout_constraintEnd_toEndOf="@+id/btnExpenseDiary"
         app:layout_constraintStart_toStartOf="@+id/btnExpenseDiary"
         app:layout_constraintTop_toTopOf="@+id/tvStats" />
+
+    <TextView
+        android:id="@+id/tvAvailableText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Available to spend:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/tvLeftBudgetText"
+        app:layout_constraintTop_toBottomOf="@+id/tvLeftBudgetText" />
+
+    <TextView
+        android:id="@+id/tvAvailableAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvBudgetText"
+        app:layout_constraintTop_toBottomOf="@+id/tvBudgetText"
+        tools:text="Amount" />
 </androidx.constraintlayout.widget.ConstraintLayout>
