@@ -15,6 +15,9 @@ import org.w3c.dom.Text
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.Date
 
 const val BUDGET=750
 class MainActivity : AppCompatActivity() {
@@ -55,9 +58,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun populateFields(){
+    private fun populateFields(){
         val context = this;
         try {
+            val dateFormat: DateFormat = SimpleDateFormat("MM")
+            val date = Date()
+            val month = dateFormat.format(date)
             var total: Double = 0.0
             val fis = openFileInput("data.txt")
             val isr = InputStreamReader(fis)
@@ -66,8 +72,10 @@ class MainActivity : AppCompatActivity() {
             var line: String? = br.readLine()
             while (line != null) {
                 var values: List<String> = line.split(";");
-                total += values[1].toDouble();
-                line=br.readLine();
+                if(values[3]==month) {
+                    total += values[1].toDouble();
+                    line = br.readLine();
+                }
             }
             tvAmountSpent.text = total.toString();
             if(total < BUDGET){

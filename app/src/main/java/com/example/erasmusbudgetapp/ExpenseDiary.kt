@@ -57,7 +57,6 @@ class ExpenseDiary : AppCompatActivity() {
                     val date = Date()
                     val month = dateFormat.format(date)
                     var content = SpinnerText + ";" + Amount + ";" + Desc + ";" + month+"\n"
-                    //Food,100,desc,08
                     try {
                         val fos = openFileOutput("data.txt", Context.MODE_APPEND)
                         val osw = OutputStreamWriter(fos)
