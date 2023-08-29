@@ -3,6 +3,7 @@ package com.example.erasmusbudgetapp
 import android.animation.ArgbEvaluator
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         populateFields()
     }
 
-    @SuppressLint("ResourceAsColor")
+
     fun populateFields(){
         val context = this;
         try {
@@ -72,11 +73,12 @@ class MainActivity : AppCompatActivity() {
             if(total < BUDGET){
                 tvAvailableAmount.text = (BUDGET-total).toString();
                 tvBudgetResult.text = "Under"
-                tvBudgetResult.setTextColor(R.color.best_tip);
-                tvAmountSpent.setTextColor(R.color.best_tip);
+                tvBudgetResult.setTextColor(Color.parseColor("#35BA01"));
+                tvAmountSpent.setTextColor(Color.parseColor("#35BA01"));
             }else{
                 tvBudgetResult.text="Over"
-                tvBudgetResult.setTextColor(R.color.worst_tip);
+                tvBudgetResult.setTextColor(Color.parseColor("#DC1E0B"));
+                tvAmountSpent.setTextColor(Color.parseColor("#DC1E0B"));
             }
             br.close()
             isr.close()
