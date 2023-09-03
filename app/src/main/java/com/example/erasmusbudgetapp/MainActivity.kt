@@ -74,8 +74,8 @@ class MainActivity : AppCompatActivity() {
                 var values: List<String> = line.split(";");
                 if(values[3]==month) {
                     total += values[1].toDouble();
-                    line = br.readLine();
                 }
+                line = br.readLine();
             }
             tvAmountSpent.text = total.toString();
             if(total < BUDGET){
