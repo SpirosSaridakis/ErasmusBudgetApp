@@ -77,7 +77,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 line = br.readLine();
             }
-            tvAmountSpent.text = total.toString();
+            val formatted = String.format("%.2f",total);
+            tvAmountSpent.text = formatted;
             if(total < BUDGET){
                 tvAvailableAmount.text = (BUDGET-total).toString();
                 tvBudgetResult.text = "Under"

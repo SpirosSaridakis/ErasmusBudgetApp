@@ -58,9 +58,12 @@ class Statistics : AppCompatActivity() {
                 }
                 line=br.readLine();
             }
-            tvFood.text=totalFood.toString();
-            tvEntertainment.text=totalEntertainment.toString();
-            tvMisc.text=totalMisc.toString();
+            val formattedFood = String.format("%.2f",totalFood);
+            val formattedEnt = String.format("%.2f",totalEntertainment);
+            val formattedMisc = String.format("%.2f",totalMisc);
+            tvFood.text=formattedFood;
+            tvEntertainment.text=formattedEnt;
+            tvMisc.text=formattedMisc;
             br.close()
             isr.close()
             fis.close()
