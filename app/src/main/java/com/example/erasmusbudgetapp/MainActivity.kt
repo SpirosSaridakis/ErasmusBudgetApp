@@ -80,7 +80,8 @@ class MainActivity : AppCompatActivity() {
             val formatted = String.format("%.2f",total);
             tvAmountSpent.text = formatted;
             if(total < BUDGET){
-                tvAvailableAmount.text = (BUDGET-total).toString();
+                val formattedAvailable = String.format("%.2f",(BUDGET-total));
+                tvAvailableAmount.text = formattedAvailable
                 tvBudgetResult.text = "Under"
                 tvBudgetResult.setTextColor(Color.parseColor("#35BA01"));
                 tvAmountSpent.setTextColor(Color.parseColor("#35BA01"));
